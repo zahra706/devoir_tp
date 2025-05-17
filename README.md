@@ -1,4 +1,4 @@
-🎬 LLM-Powered Movie & Actor Explorer
+#🎬 LLM-Powered Movie & Actor Explorer
 Advanced Python Integration Project – Zahra Chebbi, DSI23
 
 Explore random movies, discover their actors, and generate intelligent summaries using FastAPI, Neon PostgreSQL, SQLAlchemy, Langchain, Groq, and Streamlit.
@@ -9,14 +9,14 @@ Explore random movies, discover their actors, and generate intelligent summaries
 👩‍💻 Author: Wahid Hamdi
 📅 Student: Zahra Chebbi – DSI23
 
-🚀 Features
+#🚀 Features
 ✅ Store and manage Movies and Actors with relational integrity.
 ✅ Explore random movies and view their cast.
 ✅ Generate LLM-based summaries using Langchain + Groq.
 ✅ Browse content via an elegant Streamlit frontend.
 ✅ Use FastAPI Swagger UI for data entry.
 
-🧱 Project Architecture
+#🧱 Project Architecture
 bash
 Copier
 Modifier
@@ -34,7 +34,7 @@ movie_explorer/
 │   ├── 1.png
 │   ├── 2.png
 │   └── 3.png
-⚙️ Requirements
+#⚙️ Requirements
 Python ≥ 3.10
 
 Git
@@ -45,22 +45,22 @@ Groq API Key
 
 Virtual Environment (recommended)
 
-🛠️ Installation & Setup
+##🛠️ Installation & Setup
 bash
 Copier
 Modifier
-# 1. Clone repository
+###1. Clone repository
 git clone https://github.com/zahra706/devoir_tp.git
 cd devoir_tp
 
-# 2. Create and activate a virtual environment
+### 2. Create and activate a virtual environment
 python -m venv venv
-# On Windows
+### On Windows
 venv\Scripts\activate
-# On macOS/Linux
+### On macOS/Linux
 source venv/bin/activate
 
-# 3. Install dependencies
+### 3. Install dependencies
 pip install -r requirements.txt
 📦 requirements.txt includes:
 php
@@ -68,7 +68,7 @@ Copier
 Modifier
 fastapi, uvicorn, sqlalchemy, psycopg2-binary, pydantic,
 streamlit, langchain, langchain-groq, requests, python-dotenv
-🔐 Environment Variables
+##🔐 Environment Variables
 Create a .env file in the root:
 
 env
@@ -82,7 +82,7 @@ bash
 Copier
 Modifier
 uvicorn main_fastapi:app --reload
-📌 Access Swagger UI: http://localhost:8000/docs
+##📌 Access Swagger UI: http://localhost:8000/docs
 
 2️⃣ Add Sample Movies (Swagger UI)
 Use POST /movies/ with:
@@ -115,15 +115,15 @@ cd devoir_tp
 streamlit run main_streamlit.py
 📌 Access UI: http://localhost:8501
 
-🧪 API Endpoints
+##🧪 API Endpoints
 Endpoint	Description
 GET /movies/random/	Retrieve a random movie and its actors
 POST /generate_summary/	Generate LLM summary for a movie by movie_id
 
-📷 Screenshots (captures/)
+##📷 Screenshots (captures/)
 Swagger UI	Streamlit App	Summary
 
-❓ Assessment Q&A
+#❓ Assessment Q&A
 🔸 Why insert the Movie before Actors?
 Because the movie_id foreign key in Actor must reference an existing movie. Committing the movie ensures its id is available for the related actors.
 
@@ -137,14 +137,9 @@ python
 Copier
 Modifier
 actor_list = ", ".join(actor.actor_name for actor in movie.actors) or "various actors"
-🧩 Troubleshooting
-Issue	Solution
-Backend errors	Check FastAPI terminal logs
-Groq API not working	Test with python test_groq.py
-Database not connecting	Use python test_db.py
-Streamlit not loading	Ensure FastAPI is running first
 
-🌐 Git Versioning
+
+##🌐 Git Versioning
 bash
 Copier
 Modifier
