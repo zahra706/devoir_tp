@@ -1,89 +1,96 @@
-#Devoir_TP_Zahra_Chebbi_DSI23
-LLM-Powered Movie & Actor Explorer Application
-This project is an Advanced Python - Integration Skills Assessment that demonstrates the integration of FastAPI, Neon Postgres, SQLAlchemy, Pydantic, Langchain (with Groq), and Streamlit. The application consists of a FastAPI backend that manages movie and actor data in a PostgreSQL database and a Streamlit frontend that allows users to explore random movies, view associated actors, and request LLM-generated summaries.
-Author: Wahid HamdiGitHub Repository: https://github.com/zahra706/devoir_tp
-Objective
-The application enables users to:
+🎬 LLM-Powered Movie & Actor Explorer
+Advanced Python Integration Project – Zahra Chebbi, DSI23
 
-Store and manage movie and actor data in a PostgreSQL database using FastAPI and SQLAlchemy with relationships.
-Retrieve random movies and their actors via a FastAPI endpoint.
-Generate movie summaries using Langchain and Groq’s LLM.
-Explore movies and request summaries through a user-friendly Streamlit interface.
+Explore random movies, discover their actors, and generate intelligent summaries using FastAPI, Neon PostgreSQL, SQLAlchemy, Langchain, Groq, and Streamlit.
 
-Data entry is handled via the FastAPI API (e.g., Swagger UI), while the Streamlit app focuses on displaying and interacting with the data.
-Project Structure
-The project is located in C:\Users\hp\Desktop\dv_python\movie_explorer (or devoir_tp if renamed). The structure is:
+🧠 This app combines the power of structured data with the capabilities of modern LLMs for an enriched movie exploration experience.
+
+📁 GitHub Repository: zahra706/devoir_tp
+👩‍💻 Author: Wahid Hamdi
+📅 Student: Zahra Chebbi – DSI23
+
+🚀 Features
+✅ Store and manage Movies and Actors with relational integrity.
+✅ Explore random movies and view their cast.
+✅ Generate LLM-based summaries using Langchain + Groq.
+✅ Browse content via an elegant Streamlit frontend.
+✅ Use FastAPI Swagger UI for data entry.
+
+🧱 Project Architecture
+bash
+Copier
+Modifier
 movie_explorer/
 ├── .env
 ├── .gitignore
-├── requirements.txt
-├── main_fastapi.py
-├── main_streamlit.py
+├── main_fastapi.py        # FastAPI backend
+├── main_streamlit.py      # Streamlit frontend
 ├── database.py
 ├── models.py
 ├── pydantic_models.py
+├── requirements.txt
 ├── README.md
 ├── captures/
-│   ├── screenshot_swagger_movies.png
-│   ├── screenshot_streamlit_ui.png
-│   ├── screenshot_summary.png
+│   ├── 1.png
+│   ├── 2.png
+│   └── 3.png
+⚙️ Requirements
+Python ≥ 3.10
 
-Prerequisites
+Git
 
-Python: 3.10 or higher
-Neon Postgres: Account with connection string (provided)
-Groq API Key: For LLM integration
-Git: For version control
-Virtual Environment: Recommended for dependency isolation
+Neon Postgres account
 
-Setup Instructions
+Groq API Key
 
-git init
-cd movie_explorer
+Virtual Environment (recommended)
 
+🛠️ Installation & Setup
+bash
+Copier
+Modifier
+# 1. Clone repository
+git clone https://github.com/zahra706/devoir_tp.git
+cd devoir_tp
 
-Create and Activate Virtual Environment:
+# 2. Create and activate a virtual environment
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+# On Windows
+venv\Scripts\activate
+# On macOS/Linux
+source venv/bin/activate
 
-
-Install Dependencies:
+# 3. Install dependencies
 pip install -r requirements.txt
+📦 requirements.txt includes:
+php
+Copier
+Modifier
+fastapi, uvicorn, sqlalchemy, psycopg2-binary, pydantic,
+streamlit, langchain, langchain-groq, requests, python-dotenv
+🔐 Environment Variables
+Create a .env file in the root:
 
-The requirements.txt includes:
-fastapi==0.115.2
-uvicorn==0.32.0
-sqlalchemy==2.0.36
-psycopg2-binary==2.9.10
-pydantic==2.9.2
-streamlit==1.39.0
-langchain==0.3.3
-langchain-groq==0.2.0
-requests==2.32.3
-python-dotenv==1.0.1
+env
+Copier
+Modifier
+DATABASE_URL=postgresql://<your_connection_string>
+GROQ_API_KEY=<your_groq_api_key>
+▶️ Running the App
+1️⃣ Start the FastAPI Backend
+bash
+Copier
+Modifier
+uvicorn main_fastapi:app --reload
+📌 Access Swagger UI: http://localhost:8000/docs
 
+2️⃣ Add Sample Movies (Swagger UI)
+Use POST /movies/ with:
 
-Configure Environment Variables:
-
-Create a .env file in the project root:DATABASE_URL=postgresql://moviedb_owner:npg_FJjnSrI6gb7D@ep-soft-tree-a42rjmby-pooler.us-east-1.aws.neon.tech/moviedb?sslmode=require
-GROQ_API_KEY=xai-AA95YZvfir0uS1vGlJJEqjzq6iZYlY5gVbENSJEuu68ssExmY8j1KSex3FmBixA3Sx6TDQnfqw9sEMen
-
-
-
-
-
-Running the Application
-Backend (FastAPI)
-
-Start the FastAPI Server:uvicorn main_fastapi:app --reload
-
-
-Access the API:
-Open http://localhost:8000/docs for Swagger UI.
-
-
-Add Movie Data:
-Use the POST /movies/ endpoint to add movies (required before using the Streamlit app). Example JSONs:{
+json
+Copier
+Modifier
+{
   "title": "Inception",
   "year": 2010,
   "director": "Christopher Nolan",
@@ -94,136 +101,56 @@ Use the POST /movies/ endpoint to add movies (required before using the Streamli
     {"actor_name": "Tom Hardy"}
   ]
 }
+Add more examples from the original README if needed.
 
-{
-  "title": "Pulp Fiction",
-  "year": 1994,
-  "director": "Quentin Tarantino",
-  "actors": [
-    {"actor_name": "John Travolta"},
-    {"actor_name": "Samuel L. Jackson"},
-    {"actor_name": "Uma Thurman"},
-    {"actor_name": "Bruce Willis"}
-  ]
-}
+3️⃣ Start the Streamlit Frontend
+In a new terminal:
 
-{
-  "title": "Al-Risalah (The Message)",
-  "year": 1976,
-  "director": "Moustapha Akkad",
-  "actors": [
-    {"actor_name": "Abdullah Gaith (عبد الله غيث)"},
-    {"actor_name": "Muna Wassef (منى واصف)"},
-    {"actor_name": "Hamdi Ghaith (حمدي غيث)"},
-    {"actor_name": "Ahmad Marey (أحمد مرعي)"}
-  ]
-}
-
-
-
-
-Test Endpoints:
-GET /movies/random/: Retrieves a random movie with actors.
-POST /generate_summary/: Generates a summary for a given movie_id.
-
-
-
-Frontend (Streamlit)
-
-Start the Streamlit App:
-In a new terminal, ensure the virtual environment is activated:cd C:\Users\hp\Desktop\dv_python\movie_explorer
-.\venv\Scripts\activate
+bash
+Copier
+Modifier
+# Activate venv again if needed
+cd devoir_tp
+.\venv\Scripts\activate  # Windows
 streamlit run main_streamlit.py
+📌 Access UI: http://localhost:8501
 
+🧪 API Endpoints
+Endpoint	Description
+GET /movies/random/	Retrieve a random movie and its actors
+POST /generate_summary/	Generate LLM summary for a movie by movie_id
 
+📷 Screenshots (captures/)
+Swagger UI	Streamlit App	Summary
 
+❓ Assessment Q&A
+🔸 Why insert the Movie before Actors?
+Because the movie_id foreign key in Actor must reference an existing movie. Committing the movie ensures its id is available for the related actors.
 
-Access the UI:
-Open http://localhost:8501.
+🔸 Lazy Loading vs. Eager Loading (joinedload)
+Lazy: Fetch related data only when accessed. May cause many small queries (N+1 problem).
 
+Eager (joinedload): Fetch related data in one SQL JOIN query. Efficient for known use cases.
 
-Interact with the App:
-Click “Show Random Movie” to display a movie’s title, year, director, and actors.
-Click “Get Summary” to fetch an LLM-generated summary.
-Ensure the FastAPI server is running during Streamlit usage.
+🔸 Format actors for LLM prompt
+python
+Copier
+Modifier
+actor_list = ", ".join(actor.actor_name for actor in movie.actors) or "various actors"
+🧩 Troubleshooting
+Issue	Solution
+Backend errors	Check FastAPI terminal logs
+Groq API not working	Test with python test_groq.py
+Database not connecting	Use python test_db.py
+Streamlit not loading	Ensure FastAPI is running first
 
-
-
-Important Notes
-
-Data Entry: Add movies via the FastAPI Swagger UI (POST /movies/) before using the Streamlit app, as the frontend relies on existing database data.
-Neon Postgres: The database may have a 500ms–2s delay on the first query due to cold starts.
-Error Handling: The backend includes logging for debugging (check the FastAPI terminal for errors).
-Git: Do not commit .env (excluded via .gitignore).
-
-Git Integration
-To push changes to the GitHub repository:
+🌐 Git Versioning
+bash
+Copier
+Modifier
 git add .
 git commit -m "Update movie explorer project"
 git push origin main
 
 
-Repository: https://github.com/zahra706/devoir_tp
-If authentication is required, use a GitHub personal access token.
-
-Assessment Questions and Responses
-
-Why is it often necessary to commit the primary record (Movies) before creating the related records (Actors) that depend on its foreign key?
-
-Committing the Movies record first ensures its primary key (id) is generated and persisted in the database. The Actors table requires this movie_id as a foreign key to establish the relationship. Without committing the Movies record, the database would raise a foreign key constraint violation when trying to insert Actors with a non-existent movie_id.
-
-
-What is the difference between lazy loading and eager loading (like joinedload) for relationships in SQLAlchemy?
-
-Lazy Loading: Related data (e.g., Movies.actors) is fetched from the database only when accessed, triggering additional queries. This can lead to the N+1 query problem, where multiple queries are executed for each related object, reducing performance.
-Eager Loading (e.g., joinedload): Related data is fetched in the initial query using SQL JOINs, reducing the number of database queries. For example, joinedload(Movies.actors) includes actor data in the same query as the movie, improving efficiency but potentially increasing memory usage for large datasets.
-
-
-How would you format the list of actors fetched from the database into a simple string suitable for inclusion in the LLM prompt?
-
-The list of actors is formatted by joining their actor_name fields with commas. For example:actor_list = ", ".join(actor.actor_name for actor in movie.actors) or "various actors"
-
-This creates a string like “Leonardo DiCaprio, Joseph Gordon-Levitt, Elliot Page, Tom Hardy”. If the actor list is empty, it defaults to “various actors” to ensure the LLM prompt remains valid.
-
-
-
-Captures Directory
-The /captures directory contains screenshots and documentation to demonstrate the application’s functionality:
-
-screenshot_swagger_movies.png: Shows the Swagger UI with a successful POST to /movies/ for adding a movie.
-screenshot_streamlit_ui.png: Displays the Streamlit UI after clicking “Show Random Movie”, showing movie details and actors.
-screenshot_summary.png: Captures the Streamlit UI with an LLM-generated summary after clicking “Get Summary”.
-
-These files provide visual evidence of the application’s backend and frontend in action.
-Troubleshooting
-
-Backend Errors:
-Check FastAPI logs for detailed error messages (e.g., database or Groq issues).
-Verify the DATABASE_URL and GROQ_API_KEY in .env.
-
-
-Database Connection:
-Test Neon Postgres connectivity:python test_db.py
-
-(See test_db.py in the repository for the script.)
-
-
-Groq LLM:
-Test the API key:python test_groq.py
-
-(See test_groq.py in the repository.)
-
-
-Streamlit:
-Ensure the FastAPI server is running before using the Streamlit app.
-Use streamlit run main_streamlit.py, not uvicorn.
-
-
-
-Assessment Criteria Fulfillment
-
-Backend Functionality & Relationships (8/8): Implements movie and actor endpoints with SQLAlchemy relationships, eager loading (joinedload), and error handling.
-Langchain/LLM Integration (4/4): Includes /generate_summary/ with Groq LLM, a structured prompt, and robust error handling.
-Frontend Functionality (4/4): Streamlit app displays random movies, actors, and summaries with session state management and error handling.
-Integration & Code Quality (4/4): Modular code, comprehensive error handling, logging, and clear documentation in this README.
-
+🎓 This project is part of Zahra Chebbi’s integration assessment for DSI23 – showcasing backend/frontend synergy, AI usage, and clean development practices.
