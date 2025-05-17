@@ -1,9 +1,9 @@
-🎬 LLM-Powered Movie & Actor Explorer
-Projet d’Intégration – Zahra Chebbi, DSI23
+# 🎬 LLM-Powered Movie & Actor Explorer
+## Projet d’Intégration – Zahra Chebbi, DSI23
 Explore random movies, discover their casts, and generate intelligent summaries using FastAPI, PostgreSQL (Neon), SQLAlchemy, Langchain, Groq, and Streamlit.
 🧠 This project combines structured data management with LLM intelligence for an enriched cinematic experience.
-📁 GitHub Repository: zahra706/devoir_tp👨‍🏫 Supervisor: Wahid Hamdi👩‍🎓 Student: Zahra Chebbi – DSI23  
-🚀 Features
+### 📁 GitHub Repository: zahra706/devoir_tp👨‍🏫 Supervisor: Wahid Hamdi👩‍🎓 Student: Zahra Chebbi – DSI23  
+## 🚀 Features
 
 ✅ Store movies and actors with relational integrity.
 ✅ Retrieve and display random movies with their casts.
@@ -11,7 +11,7 @@ Explore random movies, discover their casts, and generate intelligent summaries 
 ✅ Simple and intuitive Streamlit user interface.
 ✅ Swagger UI for testing the FastAPI backend.
 
-🧱 Project Architecture
+## 🧱 Project Architecture
 movie_explorer/
 ├── .env                    # Environment variables
 ├── .gitignore             # Git ignore file
@@ -25,9 +25,10 @@ movie_explorer/
 ├── captures/              # Screenshots
 │   ├── 1.png              # Swagger UI
 │   ├── 2.png              # Streamlit UI
-│   ├── 3.png              # Generated summary
+│   ├── 3.png               # Generated summary
+     ....
 
-⚙️ Prerequisites
+## ⚙️ Prerequisites
 
 Python: ≥ 3.10
 Git: For version control
@@ -35,7 +36,7 @@ Neon PostgreSQL: Account with connection string
 Groq API Key: For LLM integration
 Virtual Environment: Recommended for dependency isolation
 
-🛠️ Installation & Setup
+## 🛠️ Installation & Setup
 
 Clone the Repository:
 git clone https://github.com/zahra706/devoir_tp.git
@@ -44,9 +45,9 @@ cd movie_explorer
 
 Create and Activate Virtual Environment:
 python -m venv venv
-# Windows
+#Windows
 venv\Scripts\activate
-# macOS/Linux
+#macOS/Linux
 source venv/bin/activate
 
 
@@ -66,7 +67,7 @@ requests==2.32.3
 python-dotenv==1.0.1
 
 
-Configure Environment Variables:
+## Configure Environment Variables:
 
 Create a .env file in the project root:DATABASE_URL=postgresql://moviedb_owner:npg_FJjnSrI6gb7D@ep-soft-tree-a42rjmby-pooler.us-east-1.aws.neon.tech/moviedb?sslmode=require
 GROQ_API_KEY=xai-AA95YZvfir0uS1vGlJJEqjzq6iZYlY5gVbENSJEuu68ssExmY8j1KSex3FmBixA3Sx6TDQnfqw9sEMen
@@ -87,7 +88,7 @@ Access Swagger UI:
 Open http://localhost:8000/docs.
 
 
-Add Movie Data:
+## Add Movie Data:
 
 Use POST /movies/ in Swagger UI to add movies (required before using Streamlit). Example:{
   "title": "Inception",
@@ -106,7 +107,7 @@ Add additional movies like “Pulp Fiction” and “Al-Risalah (The Message)”
 
 
 
-2️⃣ Frontend (Streamlit)
+## 2️⃣ Frontend (Streamlit)
 
 Start the Streamlit App:
 # Ensure virtual environment is activated
@@ -129,7 +130,7 @@ Ensure the FastAPI server is running.
 
 
 
-🧪 API Endpoints
+## 🧪 API Endpoints
 
 
 
@@ -150,14 +151,14 @@ POST /generate_summary/
 Generates an intelligent summary via Groq
 
 
-📷 Screenshots
+## 📷 Screenshots
 The /captures directory contains:
 
 1.png: Swagger UI showing POST /movies/ in action.
 2.png: Streamlit interface displaying a random movie and cast.
 3.png: Streamlit interface with a generated summary.
 
-❓ Assessment Questions & Answers
+## ❓ Assessment Questions & Answers
 
 Why insert the movie before the actors?
 
